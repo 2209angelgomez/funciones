@@ -131,11 +131,126 @@
 
 /**------------------------------------------------------------------------------- */
 
-var nombre = prompt ("Ingrese su nombre");
-function conocerTrabajo (nombre, trabajo= "No esta tranajando"){
-    document.write(" Hola " + nombre+ " tu trabajo es: " + trabajo);
+// var nombre = prompt ("Ingrese su nombre");
+// function conocerTrabajo (nombre, trabajo= "No esta tranajando"){
+//     document.write(" Hola " + nombre+ " tu trabajo es: " + trabajo);
 
+// }
+
+// conocerTrabajo("Angélica", "Modelo");
+// conocerTrabajo("yo");
+
+/**------------------------------------------------------------------------------ */
+/**FUNCIONES IIEP */
+
+// (function(){
+//     console.log("aqui estoy");
+// })();
+
+/**------------------------------------------------------------------------------ */
+
+/** FUNCIONES CON PARAMETROS REST ySpread*/ 
+/**mete todos los valores dentro de un array esto es rest */
+
+function listarFrutas(fruta1, fruta2,...restFrutas){
+    console.log("fruta1", fruta1);
+    console.log("fruta2", fruta2);
+    console.log("restFrutas", restFrutas);
+}
+listarFrutas("Naranja", "Manzana", "Sandia", "Durazno", "Coco");
+
+/*Pararmetros tipo spread* */
+
+function listarFrutas2(fruta1, fruta2,...restFrutas){
+    console.log("fruta1", fruta1);
+    console.log("fruta2", fruta2);
+    console.log("restFrutas", restFrutas);
+}
+var frutas =("Melon", "Uva", "Kiwi");
+listarFrutas2(...frutas, "Naranja", "Manzana", "Sandia", "Durazno", "Coco");
+
+
+
+
+/**Funciones normales */
+
+
+function sumar (num1, num2){
+    var res = num1+num2;
+    return res;
+}
+var resultado= sumar(2,5);
+console.log("resultado de sumar con la funcion sumar", resultado);
+
+
+
+/**Funcion anonima */
+
+var resultado= function(num1, num2){
+    var res= num1+num2;
+    return res;
+}
+console.log("resultado de sumar con la funcion anonima", resultado(10,20));
+
+
+/**Funcion Lamda */
+
+var resultado = (num1, num2) => {
+    var res = num1 +num2;
+    return res;
+}
+console.log("resultado de sumar con la funcion lamda", resultado(90,30));
+
+/**Ejemplo */
+
+function viajarMundo (destino){
+    let viajar = "viajando por" + destino;
+    return viajar;
+}
+let destino = viajarMundo("Londres");
+console.log(destino)
+
+
+let destino2 = function(destino){
+    let viajar= "viajando por"+ destino;
+    return viajar;
+}
+console.log(destino2("Paris"));
+
+
+let destino3 = (destino) => "Viajando por"+ destino;
+console.log(destino3("EUA"));
+
+
+
+/**================================================================== */
+
+/**FUNCIONES CALLBACKS */
+
+/**================================================================== */
+
+
+
+function adicion( num1, num2, suma, prod, resta){
+    console.log("num1", num1);
+    console.log("num2", num2);
+    var res = num1 + num2;
+    suma(res);
+    prod(res);
+    resta(num1, num2);
 }
 
-conocerTrabajo("Angélica", "Modelo");
-conocerTrabajo("yo");
+adicion(5,7, function(total){
+             console.log("La suma es: " +total);
+             }, function(total){
+                 console.log("el doble de: "+ total + "es "+total*2);
+             },function(n1, n2){
+                 console.log("La resta de: " +n1+ "-" +n2+ "=" + (n1-n2));
+             });
+
+
+
+
+
+adicion 
+    
